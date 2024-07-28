@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+
+    <!--        appClientSupport-1.0,
+     appSecurity-2.0, batch-1.0, beanValidation-1.1, cdi-1.2,
+     concurrent-1.0, distributedMap-1.0, ejb-3.2, ejbHome-3.2,
+     ejbLite-3.2, ejbPersistentTimer-3.2, ejbRemote-3.2, el-3.0,
+     j2eeManagement-1.1, jacc-1.5, jaspic-1.1, javaMail-1.5,
+     javaee-7.0, jaxb-2.2, jaxrs-2.0, jaxrsClient-2.0, jaxws-2.2,
+     jca-1.7, jcaInboundSecurity-1.0, jdbc-4.1, jms-2.0, jndi-1.0,
+     jpa-2.1, jpaContainer-2.1, jsf-2.2, json-1.0, jsonp-1.0, jsp-2.3,
+     managedBeans-1.0, mdb-3.2, servlet-3.1, ssl-1.0, wasJmsClient-2.0,
+     wasJmsSecurity-1.0, wasJmsServer-1.0, webProfile-7.0, websocket-1.1-->
+
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>servlet-3.1</feature>
+        <feature>jdbc-4.1</feature>
+        <feature>jpa-2.1</feature>
+        <feature>jndi-1.0</feature>
+        <feature>ejb-3.2</feature>
+<!--        <feature>javaee-7.0</feature>-->
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9081"
+                  httpsPort="9444" />
+
+    <applicationManager autoExpand="true"/>
+
+<!--    <webApplication id="j2id" name="j2eetest1" contextRoot="/test" location="j2eetest-1.0.war" />-->
+    <application name="j2eeapp" context-root="/j2ee" location="j2eetest-1.0.war"/>
+    <classloader delegation="parentLast"/>
+
+    <dataSource id="cbspbp01" jndiName="jdbc/cbspbp">
+        <jdbcDriver libraryRef="OracleLib"/>
+        <properties.oracle URL="jdbc:oracle:thin:@//whm.asuscomm.com:1521/orclpdb" user="cbspbp01" password="cbspbp01"/>
+    </dataSource>
+
+    <library id="OracleLib">
+        <fileset dir="/Users/xminsky/lib/ojdbc8-full/" />
+    </library>
+
+    <logging  traceSpecification="JPA=all" />
+
+</server>
