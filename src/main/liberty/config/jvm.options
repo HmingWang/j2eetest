@@ -1,0 +1,6 @@
+-Dfile.encoding=UTF-8
+-Dconsole.encoding=UTF-8
+--add-opens=java.base/java.lang=ALL-UNNAMED
+
+-Duser.language=en
+-Duser.country=us

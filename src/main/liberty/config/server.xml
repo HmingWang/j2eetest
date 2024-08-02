@@ -15,12 +15,17 @@
 
     <!-- Enable features -->
     <featureManager>
-        <feature>servlet-3.1</feature>
-        <feature>jdbc-4.1</feature>
-        <feature>jpa-2.1</feature>
-        <feature>jndi-1.0</feature>
-        <feature>ejb-3.2</feature>
-<!--        <feature>javaee-7.0</feature>-->
+<!--        <feature>servlet-3.1</feature>-->
+<!--        <feature>jdbc-4.1</feature>-->
+<!--        <feature>jpa-2.1</feature>-->
+<!--        <feature>jndi-1.0</feature>-->
+<!--        <feature>ejbLite-3.2</feature>-->
+<!--        <feature>ejbHome-3.2</feature>-->
+<!--        <feature>ejbRemote-3.2</feature>-->
+<!--        <feature>heritageAPIs-1.1</feature>-->
+<!--        <feature>jsp-2.3</feature>-->
+<!--        <feature>ejb-3.2</feature>-->
+        <feature>javaee-7.0</feature>
     </featureManager>
 
     <httpEndpoint id="defaultHttpEndpoint"
@@ -29,8 +34,12 @@
 
     <applicationManager autoExpand="true"/>
 
+    <ejbContainer bindToServerRoot="true" startEJBsAtAppStart="true"/>
 <!--    <webApplication id="j2id" name="j2eetest1" contextRoot="/test" location="j2eetest-1.0.war" />-->
     <application name="j2eeapp" context-root="/j2ee" location="j2eetest-1.0.war"/>
+<!--    <enterpriseApplication name="j2eeapp" location="j2eetest-1.0.war">-->
+<!--        <web-ext context-root="/j2eeapp" moduleName="hello"/>-->
+<!--    </enterpriseApplication>-->
     <classloader delegation="parentLast"/>
 
     <dataSource id="cbspbp01" jndiName="jdbc/cbspbp">
@@ -39,7 +48,7 @@
     </dataSource>
 
     <library id="OracleLib">
-        <fileset dir="/Users/xminsky/lib/ojdbc8-full/" />
+        <fileset dir="/Users/xminsky/lib/ojdbc8-full/" include="*.jar"/>
     </library>
 
     <logging  traceSpecification="JPA=all" />
